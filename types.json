@@ -1,0 +1,27 @@
+[
+   {
+      "embeds":[
+         "author",
+         "authorIcon",
+         "color",
+         "description",
+         "embeddedURL",
+         "footer",
+         "footerIcon",
+         "title"
+      ]
+   },
+   {
+      "events":[
+         "onLeave",
+         "onInteraction",
+         "onJoined"
+      ]
+   },
+   {
+      "components":[
+         "addButton",
+         "newSelectMenu"
+      ]
+   }
+]
