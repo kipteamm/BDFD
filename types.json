@@ -13,9 +13,12 @@
    },
    {
       "events":[
+         "onBanAdd",
+         "onBanRemove",
          "onLeave",
          "onInteraction",
-         "onJoined"
+         "onJoined",
+         "onMessageDelete"
       ]
    },
    {
