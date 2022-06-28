@@ -1,5 +1,12 @@
 [
    {
+      "types":[
+         "embeds",
+         "events",
+         "components",
+      ]
+   },
+   {
       "embeds":[
          "author",
          "authorIcon",
