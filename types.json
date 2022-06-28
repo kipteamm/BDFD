@@ -3,7 +3,7 @@
       "types":[
          "embeds",
          "events",
-         "components",
+         "components"
       ]
    },
    {
@@ -15,6 +15,7 @@
          "embeddedURL",
          "footer",
          "footerIcon",
+         "image",
          "title"
       ]
    },
