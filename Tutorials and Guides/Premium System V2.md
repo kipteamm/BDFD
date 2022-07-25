@@ -13,7 +13,7 @@
 All these work with 2 variables only. 
 The first variables is called `premium` with a default value of `false`.
 The second variable is `premiumcodes` with a default value of nothing.
-{{ insert image }}
+![premium variables](https://github.com/ToroEen/BDFD/blob/7e09ceb3c613cd246a208d2f7784d2d33fd0cecc/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/premium_variables.png)
 
 # Command 1
 Lets start of with the `<PREFIX>givecode` command.
@@ -67,7 +67,10 @@ $dm[$var[user]]
 
 # Command 2
 Second of all is a user's inventory where all gifted premium codes get stored. 
+
 The trigger for this code is as following `<PREFIX>inventory (@user)`.
+So the usage would be:
+![Inventory with user](https://github.com/ToroEen/BDFD/blob/504ced6f75414b20c5c8bb693a8ec7f3e041d12c/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/inventory_with_user.png)
 ```php
 $nomention
 
@@ -84,6 +87,9 @@ $footer[+activate [number\]]
 # Command 3
 Now the most important code, activating a premium-code.
 This command has the following trigger `<PREFIX>activate [number]`.
+The number represents the one shown in the `<PREFIX>inventory (@user)` command.
+So the complete usage would be:
+![activated number 1](https://github.com/ToroEen/BDFD/blob/bbea7d851c813b7ff4a22f3d63c2c66b863f5411/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/activated_number_one.png)
 This command comes with an extra channel that allows you to log all activated premium codes.
 The last line of this code is as following.
 ```php
@@ -94,6 +100,8 @@ Make sure to replace `your_log_channel_id_here` with your log channel's channel 
 ```php
 $channelSendMessage[your_log_channel_id_here;**$username#$discriminator[]** `($authorID)` activated premium $replaceText[$replaceText[$checkCondition[$var[time]==0];true;;-1];false;till <t:$var[time]:F> ;-1]in **$serverName[$guildID]** `($guildID)`]
 ```
+The logging code in use would look like this:
+![activation logged](https://github.com/ToroEen/BDFD/blob/8a344d671ef3927904db514778a2262e984113cd/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/activation_logged.png)
 This is the whole code:
 ```php
 $nomention
@@ -129,6 +137,8 @@ $c[Replace this with the log code]
 # Command 4
 Check your server's premium status.
 Trigger is as following, `<PREFIX>status`.
+It would give a response as shown below.
+![status](https://github.com/ToroEen/BDFD/blob/b9b86bca307b208a140503ecd9051e8d1e34c5d9/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/status.png)
 ```php
 $nomention
 
