@@ -217,6 +217,7 @@ $c[Replace this with the log code if you want to use it, otherwise just remove i
 # Make a code premium only (no embed error)
 If you want a command to be premium only and the error message to not be an embed add this at the top of your code just underneath `$nomention`.
 An example of a premium limited code error:
+
 ![no command error](https://github.com/ToroEen/BDFD/blob/fd7d5f991585a62c6f69147fb261654b5416d64e/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/no_embed_error.png)
 ```php
 $setServerVar[premium;$replaceText[$replaceText[$checkCondition[$getServerVar[premium]==0];false;$checkCondition[$replaceText[$getServerVar[premium];false;0;1]>$getTimestamp];1];true;$getServerVar[premium];1]]
@@ -231,6 +232,7 @@ Replace the following bit with your premium limited code.
 $c[Your premium code here]
 ```
 An example of a premium limited code error:
+
 ![no embed error](https://github.com/ToroEen/BDFD/blob/fd7d5f991585a62c6f69147fb261654b5416d64e/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/no_command_error.png)
 ```php
 $nomention
