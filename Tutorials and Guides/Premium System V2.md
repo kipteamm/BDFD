@@ -31,14 +31,27 @@ When sending a premium code to someone else the usage of the command is as follo
 ```
 ![give someone else with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/gife_random_with_time.png)
 
-If you want to send a never expiring code you can leave the `(time)` argument empty. 
+If you want to send a never expiring code you can leave the `(time)` argument empty.
+The following line is the one that says who can send premium codes.
+```php
+$onlyIf[$authorID==your_user_id;You are missing permissions to use this command!]
+```
+If you want to allow multiple users replace it with the following [function](https://nilpointer-software.github.io/bdfd-wiki/bdscript/onlyForIDs.html).
+```php
+$onlyForIDs[user_id_1;user_id_1;...;You are missing permissions to use this command!]
+```
+Or if you want to allow people with (a) specific role(s) to use this command you can use the following [function](https://nilpointer-software.github.io/bdfd-wiki/bdscript/onlyForRolesIDs.html).
+```php
+$onlyForRolesIDs[role_id_1;optional_role_id_2;...;You are missing permissions to use this command!]
+```
+This is the full code:
 ```php
 $nomention
 $allowMention
 
 $enableDecimals[yes]
 
-$onlyIf[$authorID==675316333780533268;You are missing permissions to use this command!]
+$onlyIf[$authorID==your_user_id;You are missing permissions to use this command!]
 $onlyIf[$userExists[$findUser[$message[1]]]==true;The mentioned user does not exist!]
 $onlyIf[$isBot[$findUser[$message[1]]]==false;You can't give premium to a bot!]
 $onlyIf[$isUserDMEnabled[$findUser[$message[1]]]==true;This user has their DM disabled and therefore cannot get their code delivered!]
@@ -151,6 +164,9 @@ $endif
 
 # Command 5
 You can also as an owner deactivate the premium in a server.
+The trigger of that command would be `<PREFIX>deactivate (server)`. When left blank the current server will get deactivated.
+The command would something like this.
+![deactivate guild](https://github.com/ToroEen/BDFD/blob/9902a67501ec816ac4c9491392642b43191c4e6c/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/deactivate_guild.png)
 Also this code comes with an optional logging feature.
 The last line of this code is as following.
 ```php
@@ -161,6 +177,8 @@ Make sure to replace `your_log_channel_id_here` with your log channel's channel 
 ```php
 $channelSendMessage[920020324806963230;Premium got deactivated in **$serverName[$var[guild]]**!]
 ```
+The logging code in use would look like this:
+![logged deactivation](https://github.com/ToroEen/BDFD/blob/4bba1ab9f2f80d54f747881a3aa0749de9f73e4f/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/logged_deactivation.png)
 This is the whole code:
 ```php
 $nomention
@@ -173,7 +191,7 @@ $onlyIf[$getServerVar[premium;$var[guild]]!=false;This server has no active prem
 
 $setServerVar[premium;false]
 
-Successfully deactivated premium in $serverName[$var[guild]]
+Successfully deactivated premium in **$serverName[$var[guild]]**!
 
 $c[Replace this with the log code]
 ```
