@@ -84,6 +84,7 @@ Second of all is a user's inventory where all gifted premium codes get stored.
 The trigger for this code is as following `<PREFIX>inventory (@user)`.
 
 So the usage would be:
+
 ![Inventory with user](https://github.com/ToroEen/BDFD/blob/504ced6f75414b20c5c8bb693a8ec7f3e041d12c/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/inventory_with_user.png)
 ```php
 $nomention
