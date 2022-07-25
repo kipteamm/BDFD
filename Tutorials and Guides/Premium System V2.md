@@ -1,4 +1,4 @@
-Important notes:
+# Important notes:
 - `<PREFIX>` should be replaced with your prefix of choice.
 - `()` round brackets represent OPTIONAL arguments. 
 - `[]` square brackets represent REQUIRED arguments.
@@ -9,6 +9,13 @@ Important notes:
   - `1h` is 1 hour
   - `1m` is 1 minute
 
+# Variables
+All these work with 2 variables only. 
+The first variables is called `premium` with a default value of `false`.
+The second variable is `premiumcodes` with a default value of nothing.
+{{ insert image }}
+
+# Command 1
 Lets start of with the `<PREFIX>givecode` command.
 Important things to know. 
 When sending a premium code to yourself the usage of the command is as following `<PREFIX>givecode (time)`.
@@ -17,11 +24,13 @@ Example usage would be:
 +givecode 1y
 ```
 ![give yourself with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/give_yourself_with_time.png)
+
 When sending a premium code to someone else the usage of the command is as following `<PREFIX>givecode [user] (time)`.
 ```php
 +givecode @ToroEen 1y
 ```
 ![give someone else with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/gife_random_with_time.png)
+
 If you want to send a never expiring code you can leave the `(time)` argument empty. 
 ```php
 $nomention
@@ -56,4 +65,105 @@ You got a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$
 $dm[$var[user]]
 ```
 
-NOT DONE, MORE COMING SOON
+# Command 2
+Second of all is a user's inventory where all gifted premium codes get stored. 
+The trigger for this code is as following `<PREFIX>inventory (@user)`.
+```php
+$nomention
+
+$textSplit[$getVar[premiumcodes;$mentioned[1;yes]];+]
+
+$var[n;1]
+
+$title[$username[$mentioned[1;yes]]'s inventory]
+$description[**1.** $replaceText[$eval[$replaceText[`$replaceText[$replaceText[$getVar[premiumcodes;$mentioned[1;yes]];+;\]:F>
+**%{DOL}%var[n\;%{DOL}%sum[%{DOL}%var[n\]\;1\]\]%{DOL}%var[n\].** `;-1];-;` if activated now, active till <t:%{DOL}%sum[%{DOL}%getTimestamp\;;-1];if activated now, active till <t:%{DOL}%sum[%{DOL}%getTimestamp\;0\]:F>;active forever;-1]];**$var[n].** `;;-1]]
+$footer[+activate [number\]]
+```
+
+# Command 3
+Now the most important code, activating a premium-code.
+This command has the following trigger `<PREFIX>activate [number]`.
+This command comes with an extra channel that allows you to log all activated premium codes.
+The last line of this code is as following.
+```php
+$c[Replace this with the log code]
+```
+So if you want this logging feature, replace the line mentioned earlier with the following piece of code.
+Make sure to replace `your_log_channel_id_here` with your log channel's channel ID.
+```php
+$channelSendMessage[your_log_channel_id_here;**$username#$discriminator[]** `($authorID)` activated premium $replaceText[$replaceText[$checkCondition[$var[time]==0];true;;-1];false;till <t:$var[time]:F> ;-1]in **$serverName[$guildID]** `($guildID)`]
+```
+This is the whole code:
+```php
+$nomention
+
+$onlyIf[$getServerVar[premium]==false;This server already has premium activated!]
+$onlyIf[$getVar[premiumcodes;$authorID]!=;You don't have any premium codes!]
+
+$textSplit[$getVar[premiumcodes;$authorID];+]
+
+$if[$message!=]
+  $onlyIf[$isNumber[$message]==true;That is an invalid number!]
+  $onlyIf[$message<=$sub[$getTextSplitLength;1];That is an invalid number!]
+  
+  $var[number;$message]
+$else
+  $var[number;1]
+$endif
+
+$var[premiumcode;$splitText[$var[number]]]
+
+$textSplit[$var[premiumcode];-]
+
+$var[time;$replaceText[$replaceText[$checkCondition[$optOff[$splitText[2]]==0];true;0;-1];false;$sum[$getTimestamp;$optOff[$splitText[2]]];-1]]
+
+$setServerVar[premium;$var[time]]
+$setVar[premiumcodes;$replaceText[$getVar[premiumcodes;$authorID];$var[premiumcode]+;;-1];$authorID]
+
+<@$authorID> activated premium in this server$replaceText[$replaceText[$checkCondition[$var[time]==0];true;!;-1];false; till <t:$var[time]:F>!;-1] Don't forget to thank them!
+
+$c[Replace this with the log code]
+```
+
+# Command 4
+Check your server's premium status.
+Trigger is as following, `<PREFIX>status`.
+```php
+$nomention
+
+$if[$getServerVar[premium]!=false]
+  This server has an active premium subscription$replaceText[$replaceText[$checkCondition[$getServerVar[premium]==0];true;!;-1];false; till <t:$getServerVar[premium]:F>;-1]
+$else
+  This server currently has no premium subscription.
+$endif
+```
+
+# Command 5
+You can also as an owner deactivate the premium in a server.
+Also this code comes with an optional logging feature.
+The last line of this code is as following.
+```php
+$c[Replace this with the log code]
+```
+So if you want this logging feature, replace the line mentioned earlier with the following piece of code.
+Make sure to replace `your_log_channel_id_here` with your log channel's channel ID.
+```php
+$channelSendMessage[920020324806963230;Premium got deactivated in **$serverName[$var[guild]]**!]
+```
+This is the whole code:
+```php
+$nomention
+
+$var[guild;$replaceText[$replaceText[$checkCondition[$message[1]==];true;$guildID;1];false;$message[1];1]]
+
+$onlyIf[$guildExists[$var[guild]]==true;Invalid guild ID provided!]
+$onlyIf[$authorID==675316333780533268;You are missing permissions to use this command!]
+$onlyIf[$getServerVar[premium;$var[guild]]!=false;This server has no active premium subscription running!]
+
+$setServerVar[premium;false]
+
+Successfully deactivated premium in $serverName[$var[guild]]
+
+$c[Replace this with the log code]
+```
