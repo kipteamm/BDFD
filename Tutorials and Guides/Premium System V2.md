@@ -40,10 +40,6 @@ If you want to allow multiple users replace it with the following [function](htt
 ```php
 $onlyForIDs[user_id_1;user_id_1;...;You are missing permissions to use this command!]
 ```
-Or if you want to allow people with (a) specific role(s) to use this command you can use the following [function](https://nilpointer-software.github.io/bdfd-wiki/bdscript/onlyForRolesIDs.html).
-```php
-$onlyForRolesIDs[role_id_1;optional_role_id_2;...;You are missing permissions to use this command!]
-```
 This is the full code:
 ```php
 $nomention
