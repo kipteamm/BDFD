@@ -102,7 +102,7 @@ $var[n;1]
 $title[$username[$mentioned[1;yes]]'s inventory]
 $description[**1.** $replaceText[$eval[$replaceText[`$replaceText[$replaceText[$getVar[premiumcodes;$mentioned[1;yes]];+;\]:F>
 **%{DOL}%var[n\;%{DOL}%sum[%{DOL}%var[n\]\;1\]\]%{DOL}%var[n\].** `;-1];-;` if activated now, active till <t:%{DOL}%sum[%{DOL}%getTimestamp\;;-1];if activated now, active till <t:%{DOL}%sum[%{DOL}%getTimestamp\;0\]:F>;active forever;-1]];**$var[n].** `;;-1]]
-$footer[+activate [number\]]
+$footer[+activate (number)]
 ```
 
 
