@@ -111,7 +111,7 @@ So the complete usage would be:
 This command comes with an extra channel that allows you to log all activated premium codes.
 The last line of this code is as following.
 ```php
-$c[Replace this with the log code]
+$c[Replace this with the log code if you want to use it, otherwise just remove it.]
 ```
 So if you want this logging feature, replace the line mentioned earlier with the following piece of code.
 Make sure to replace `your_log_channel_id_here` with your log channel's channel ID.
@@ -149,7 +149,7 @@ $setVar[premiumcodes;$replaceText[$getVar[premiumcodes;$authorID];$var[premiumco
 
 <@$authorID> activated premium in this server$replaceText[$replaceText[$checkCondition[$var[time]==0];true;!;-1];false; till <t:$var[time]:F>!;-1] Don't forget to thank them!
 
-$c[Replace this with the log code]
+$c[Replace this with the log code if you want to use it, otherwise just remove it.]
 ```
 
 
@@ -178,7 +178,7 @@ The command would something like this.
 Also this code comes with an optional logging feature.
 The last line of this code is as following:
 ```php
-$c[Replace this with the log code]
+$c[Replace this with the log code if you want to use it, otherwise just remove it.]
 ```
 So if you want this logging feature, replace the line mentioned earlier with the following piece of code.
 Make sure to replace `your_log_channel_id_here` with your log channel's channel ID.
@@ -203,5 +203,5 @@ $setServerVar[premium;false]
 
 Successfully deactivated premium in **$serverName[$var[guild]]**!
 
-$c[Replace this with the log code]
+$c[Replace this with the log code if you want to use it, otherwise just remove it.]
 ```
