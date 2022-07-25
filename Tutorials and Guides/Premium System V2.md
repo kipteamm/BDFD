@@ -16,12 +16,12 @@ Example usage would be:
 ```php
 +givecode 1y
 ```
-[give yourself with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/give_yourself_with_time.png)
+![give yourself with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/give_yourself_with_time.png)
 When sending a premium code to someone else the usage of the command is as following `<PREFIX>givecode [user] (time)`.
 ```php
 +givecode @ToroEen 1y
 ```
-[give someone else with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/gife_random_with_time.png)
+![give someone else with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/gife_random_with_time.png)
 If you want to send a never expiring code you can leave the `(time)` argument empty. 
 ```php
 $nomention
