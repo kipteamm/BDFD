@@ -162,6 +162,7 @@ $c[Replace this with the log code if you want to use it, otherwise just remove i
 # Command 4
 Check your server's premium status.
 Trigger is as following, `<PREFIX>status`.
+
 It would give a response as shown below.
 ![status](https://github.com/ToroEen/BDFD/blob/b9b86bca307b208a140503ecd9051e8d1e34c5d9/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/status.png)
 ```php
