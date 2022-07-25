@@ -42,11 +42,11 @@ When sending a premium code to someone else the usage of the command is as follo
 
 If you want to send a never expiring code you can leave the `(time)` argument empty.
 
-The following line is the one that says who can send premium codes.
+The following line is the one that says who can send premium codes. Make sure to replace `your_user_id` with your userID.
 ```php
 $onlyIf[$authorID==your_user_id;You are missing permissions to use this command!]
 ```
-If you want to allow multiple users replace it with the following [function](https://nilpointer-software.github.io/bdfd-wiki/bdscript/onlyForIDs.html).
+If you want to allow multiple users replace it with the following [function](https://nilpointer-software.github.io/bdfd-wiki/bdscript/onlyForIDs.html). Don't forget to fill in actual userIDs.
 ```php
 $onlyForIDs[user_id_1;user_id_1;...;You are missing permissions to use this command!]
 ```
@@ -62,10 +62,9 @@ $onlyIf[$userExists[$findUser[$message[1]]]==true;The mentioned user does not ex
 $onlyIf[$isBot[$findUser[$message[1]]]==false;You can't give premium to a bot!]
 $onlyIf[$isUserDMEnabled[$findUser[$message[1]]]==true;This user has their DM disabled and therefore cannot get their code delivered!]
 
-$var[is_author;$replaceText[$replaceText[$checkCondition[$authorID==$findUser[$message[1]]];true;_0;1];false;_1;1]]
-
-$var[user;$replaceText[$replaceText[$var[is_author];_0;$authorID;1];_1;$findUser[$message[1]];1]]
-$var[date;$replaceText[$message[$sum[$replaceText[$var[is_author];_;;-1];1]]; ;;-1]]
+$var[is_author;$replaceText[$checkContains[$message[1];y;w;d;h;m];false;$checkCondition[$findUser[$message[1]]==$authorID];1]]
+$var[user;$replaceText[$replaceText[$checkCondition[$var[is_author]==true];true;$authorID;1];false;$findUser[$message[1]];1]]
+$var[date;$replaceText[$replaceText[$checkContains[$message[1];y;w;d;h;m];true;$message[1];1];false;$message[2];1]]
 
 $if[$var[date]!=]
   $var[time;$calculate[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[date];y;*31536000;-1];w;*604800;-1];d;*86400;-1];h;*3600;-1];m;*60;-1]]]
