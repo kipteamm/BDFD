@@ -9,11 +9,13 @@
   - `1h` is 1 hour
   - `1m` is 1 minute
 
+
 # Variables
 All these work with 2 variables only. 
 The first variables is called `premium` with a default value of `false`.
 The second variable is `premiumcodes` with a default value of nothing.
 ![premium variables](https://github.com/ToroEen/BDFD/blob/7e09ceb3c613cd246a208d2f7784d2d33fd0cecc/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/premium_variables.png)
+
 
 # Command 1
 Lets start of with the `<PREFIX>givecode` command.
@@ -75,10 +77,12 @@ You got a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$
 $dm[$var[user]]
 ```
 
+
 # Command 2
 Second of all is a user's inventory where all gifted premium codes get stored. 
 
 The trigger for this code is as following `<PREFIX>inventory (@user)`.
+
 So the usage would be:
 ![Inventory with user](https://github.com/ToroEen/BDFD/blob/504ced6f75414b20c5c8bb693a8ec7f3e041d12c/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/inventory_with_user.png)
 ```php
@@ -94,12 +98,15 @@ $description[**1.** $replaceText[$eval[$replaceText[`$replaceText[$replaceText[$
 $footer[+activate [number\]]
 ```
 
+
 # Command 3
 Now the most important code, activating a premium-code.
 This command has the following trigger `<PREFIX>activate (number)`. When `(number)` is left emtpy, the first code from the user's inventory will be used.
 The number represents the one shown in the `<PREFIX>inventory (@user)` command.
+
 So the complete usage would be:
 ![activated number 1](https://github.com/ToroEen/BDFD/blob/bbea7d851c813b7ff4a22f3d63c2c66b863f5411/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/activated_number_one.png)
+
 This command comes with an extra channel that allows you to log all activated premium codes.
 The last line of this code is as following.
 ```php
@@ -144,6 +151,7 @@ $setVar[premiumcodes;$replaceText[$getVar[premiumcodes;$authorID];$var[premiumco
 $c[Replace this with the log code]
 ```
 
+
 # Command 4
 Check your server's premium status.
 Trigger is as following, `<PREFIX>status`.
@@ -159,13 +167,15 @@ $else
 $endif
 ```
 
+
 # Command 5
 You can also as an owner deactivate the premium in a server.
 The trigger of that command would be `<PREFIX>deactivate (server)`. When left blank the current server will get deactivated.
 The command would something like this.
 ![deactivate guild](https://github.com/ToroEen/BDFD/blob/9902a67501ec816ac4c9491392642b43191c4e6c/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/deactivate_guild.png)
+
 Also this code comes with an optional logging feature.
-The last line of this code is as following.
+The last line of this code is as following:
 ```php
 $c[Replace this with the log code]
 ```
@@ -175,7 +185,9 @@ Make sure to replace `your_log_channel_id_here` with your log channel's channel 
 $channelSendMessage[920020324806963230;Premium got deactivated in **$serverName[$var[guild]]**!]
 ```
 The logging code in use would look like this:
+
 ![logged deactivation](https://github.com/ToroEen/BDFD/blob/4bba1ab9f2f80d54f747881a3aa0749de9f73e4f/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/logged_deactivation.png)
+
 This is the whole code:
 ```php
 $nomention
