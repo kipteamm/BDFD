@@ -1,4 +1,11 @@
-# Important notes:
+# Summary
+A set of codes that allow you to limit codes for servers with your premium subscription activated.
+You can gift codes that can expire, activate a server with a code of choice. 
+Log everything that happens and even deactivate a server if needed!
+
+
+# Important notes
+- Make sure to put all codes in `BDScript 2`
 - `<PREFIX>` should be replaced with your prefix of choice.
 - `()` round brackets represent OPTIONAL arguments. 
 - `[]` square brackets represent REQUIRED arguments.
@@ -204,4 +211,35 @@ $setServerVar[premium;false]
 Successfully deactivated premium in **$serverName[$var[guild]]**!
 
 $c[Replace this with the log code if you want to use it, otherwise just remove it.]
+```
+
+
+# Make a code premium only (no embed error)
+If you want a command to be premium only and the error message to not be an embed add this at the top of your code just underneath `$nomention`.
+An example of a premium limited code error:
+![no command error](https://github.com/ToroEen/BDFD/blob/fd7d5f991585a62c6f69147fb261654b5416d64e/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/no_embed_error.png)
+```php
+$setServerVar[premium;$replaceText[$replaceText[$checkCondition[$getServerVar[premium]==0];false;$checkCondition[$replaceText[$getServerVar[premium];false;0;1]>$getTimestamp];1];true;$getServerVar[premium];1]]
+
+$onlyIf[$getServerVar[premium]!=false;This server does not have an active premium subscription!]
+```
+
+# Make a code premium only (embed erorr)
+If you want a command to be premium only and the error message to be an embed set your code up as following.
+Replace the following bit with your premium limited code.
+```php
+$c[Your premium code here]
+```
+An example of a premium limited code error:
+![no embed error](https://github.com/ToroEen/BDFD/blob/fd7d5f991585a62c6f69147fb261654b5416d64e/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/no_command_error.png)
+```php
+$nomention
+
+$setServerVar[premium;$replaceText[$replaceText[$checkCondition[$getServerVar[premium]==0];false;$checkCondition[$replaceText[$getServerVar[premium];false;0;1]>$getTimestamp];1];true;$getServerVar[premium];1]]
+
+$if[$getServerVar[premium]!=false]
+  $c[Your premium code here]
+$else
+  $description[This server does not have an active premium subscription!]
+$endif
 ```
