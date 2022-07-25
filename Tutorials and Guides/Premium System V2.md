@@ -16,12 +16,12 @@ Example usage would be:
 ```php
 +givecode 1y
 ```
-{{ insert image }}
+[give yourself with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/give_yourself_with_time.png)
 When sending a premium code to someone else the usage of the command is as following `<PREFIX>givecode [user] (time)`.
 ```php
 +givecode @ToroEen 1y
 ```
-{{ insert image }}
+[give someone else with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/gife_random_with_time.png)
 If you want to send a never expiring code you can leave the `(time)` argument empty. 
 ```php
 $nomention
@@ -49,7 +49,7 @@ $var[code;$replaceText[$replaceText[$randomString[10]$replaceText[$calculate[$da
 
 $setVar[premiumcodes;$getVar[premiumcodes;$var[user]]$var[code]-$var[time]+;$var[user]]
 
-$sendMessage[Successfully send $var[user] a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$var[date]==];true;;-1];false;worthy of `$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[date];y; year(s);-1];w; week(s);-1];d; day(s);-1];h; houra(s);-1];m; minute(s);-1]`;-1]]
+$sendMessage[Successfully send **$username[$var[user]]#$discriminator[$var[user]]** a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$var[date]==];true;;-1];false;worthy of `$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[date];y; year(s);-1];w; week(s);-1];d; day(s);-1];h; houra(s);-1];m; minute(s);-1]`;-1]]
 
 You got a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$var[date]==];true;;-1];false;of `$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[date];y; year(s);-1];w; week(s);-1];d; day(s);-1];h; houra(s);-1];m; minute(s);-1]`;-1]
 
