@@ -32,6 +32,7 @@ When sending a premium code to someone else the usage of the command is as follo
 ![give someone else with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/gife_random_with_time.png)
 
 If you want to send a never expiring code you can leave the `(time)` argument empty.
+
 The following line is the one that says who can send premium codes.
 ```php
 $onlyIf[$authorID==your_user_id;You are missing permissions to use this command!]
@@ -95,7 +96,7 @@ $footer[+activate [number\]]
 
 # Command 3
 Now the most important code, activating a premium-code.
-This command has the following trigger `<PREFIX>activate [number]`.
+This command has the following trigger `<PREFIX>activate (number)`. When `(number)` is left emtpy, the first code from the user's inventory will be used.
 The number represents the one shown in the `<PREFIX>inventory (@user)` command.
 So the complete usage would be:
 ![activated number 1](https://github.com/ToroEen/BDFD/blob/bbea7d851c813b7ff4a22f3d63c2c66b863f5411/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/activated_number_one.png)
