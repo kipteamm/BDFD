@@ -1,5 +1,5 @@
 # KipteamLang, Kipteam-Lang or KPL for short
-A custom language that would be parsed by and to BDFD code.
+A custom language that is parsed by and to BDFD code.
 
 # Variables
 (Temporary) variables, basically, variables that don't get stored for long term use work as following.
@@ -44,5 +44,5 @@ You can replace the keyword `local` with one of the following
 **Getting**
 ```js
 storage(local, test)
-// returns "temp" as declared above
+// returns "temp" (as declared above)
 ```
