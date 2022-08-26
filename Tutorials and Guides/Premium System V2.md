@@ -40,8 +40,7 @@ When sending a premium code to someone else the usage of the command is as follo
 ```
 ![give someone else with time](https://github.com/ToroEen/BDFD/blob/1dc5bff78c2fc0a98c1b474baecebcb7f0b46d40/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/gife_random_with_time.png)
 
-If you want to send a never expiring code you can leave the `(time)` argument empty.
-
+If you want to send a never expiring code you can leave the `(time)` argument empty.  
 The following line is the one that says who can send premium codes. Make sure to replace `your_user_id` with your userID.
 ```php
 $onlyIf[$authorID==your_user_id;You are missing permissions to use this command!]
@@ -85,10 +84,8 @@ $dm[$var[user]]
 
 
 # Command 2
-Second of all is a user's inventory where all gifted premium codes get stored. 
-
-The trigger for this code is as following `<PREFIX>inventory (@user)`.
-
+Second of all is a user's inventory where all gifted premium codes get stored.  
+The trigger for this code is as following `<PREFIX>inventory (@user)`.  
 So the usage would be:
 
 ![Inventory with user](https://github.com/ToroEen/BDFD/blob/504ced6f75414b20c5c8bb693a8ec7f3e041d12c/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/inventory_with_user.png)
@@ -109,13 +106,13 @@ $footer[+activate (number)]
 # Command 3
 Now the most important code, activating a premium-code.
 This command has the following trigger `<PREFIX>activate (number)`. When `(number)` is left emtpy, the first code from the user's inventory will be used.
-The number represents the one shown in the `<PREFIX>inventory (@user)` command.
-
+The number represents the one shown in the `<PREFIX>inventory (@user)` command.  
 So the complete usage would be:
+
 ![activated number 1](https://github.com/ToroEen/BDFD/blob/bbea7d851c813b7ff4a22f3d63c2c66b863f5411/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/activated_number_one.png)
 
-This command comes with an extra channel that allows you to log all activated premium codes.
-The last line of this code is as following.
+This command comes with an extra channel that allows you to log all activated premium codes.  
+The last line of this code is as following:
 ```php
 $c[Replace this with the log code if you want to use it, otherwise just remove it.]
 ```
@@ -160,10 +157,10 @@ $c[Replace this with the log code if you want to use it, otherwise just remove i
 
 
 # Command 4
-Check your server's premium status.
-Trigger is as following, `<PREFIX>status`.
-
+Check your server's premium status.  
+Trigger is as following, `<PREFIX>status`.  
 It would give a response as shown below.
+
 ![status](https://github.com/ToroEen/BDFD/blob/b9b86bca307b208a140503ecd9051e8d1e34c5d9/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/status.png)
 ```php
 $nomention
