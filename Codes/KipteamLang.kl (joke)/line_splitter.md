@@ -4,7 +4,7 @@ So I have the following code, which _partially_ works. It does what it needs to 
 If you have an idea feel free to make a pr or DM me on discord (@kipteam#3048)
 
 **Input**
-```php
+```js
 var test = "temp"
 test.value
 test.name
