@@ -2,6 +2,8 @@
 This is the code that declares variables, feel free to recommend changes/updates.
 ```php
 $c[Variable declaration]
+$textSplit[$var[input];=]
+
 $if[$optOff[$getTextSplitLength]==2]
   $onlyIf[$checkContains[$splitText[1]; ;0;1;2;3;4;5;6;7;8;9]==false;:x: - Error `variableDeclarationError` invalid variable name (line 1)]
   $var[t1;$splitText[1]]
