@@ -1,5 +1,5 @@
 # Summary
-A set of codes that allow you to limit codes for servers with your premium subscription activated.
+A set of features that allow you to limit commands for servers with your premium subscription activated.
 You can gift codes that can expire, activate a server with a code of choice. 
 Log everything that happens and even deactivate a server if needed!
 
@@ -19,7 +19,7 @@ Log everything that happens and even deactivate a server if needed!
 
 # Variables
 All these work with 2 variables only. 
-The first variables is called `premium` with a default value of `false`.
+The first variable is called `premium` with a default value of `false`.
 The second variable is `premiumcodes` with a default value of nothing.
 ![premium variables](https://github.com/ToroEen/BDFD/blob/7e09ceb3c613cd246a208d2f7784d2d33fd0cecc/Tutorials%20and%20Guides/Tutorials%20and%20Guides%20Assets/premium_variables.png)
 
@@ -75,7 +75,7 @@ $var[code;$replaceText[$replaceText[$randomString[10]$replaceText[$calculate[$da
 
 $setVar[premiumcodes;$getVar[premiumcodes;$var[user]]$var[code]-$var[time]+;$var[user]]
 
-$sendMessage[Successfully send **$username[$var[user]]#$discriminator[$var[user]]** a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$var[date]==];true;;-1];false;worthy of `$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[date];y; year(s);-1];w; week(s);-1];d; day(s);-1];h; houra(s);-1];m; minute(s);-1]`;-1]]
+$sendMessage[Successfully send **$username[$var[user]]#$discriminator[$var[user]]** a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$var[date]==];true;;-1];false;worthy of `$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[date];y; year(s);-1];w; week(s);-1];d; day(s);-1];h; hour(s);-1];m; minute(s);-1]`;-1]]
 
 You got a premiumcode `($var[code])` $replaceText[$replaceText[$checkCondition[$var[date]==];true;;-1];false;of `$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[date];y; year(s);-1];w; week(s);-1];d; day(s);-1];h; houra(s);-1];m; minute(s);-1]`;-1]
 
@@ -220,6 +220,8 @@ An example of a premium limited code error:
 $setServerVar[premium;$replaceText[$replaceText[$checkCondition[$getServerVar[premium]==0];false;$checkCondition[$replaceText[$getServerVar[premium];false;0;1]>$getTimestamp];1];true;$getServerVar[premium];1]]
 
 $onlyIf[$getServerVar[premium]!=false;This server does not have an active premium subscription!]
+
+$c[The rest of your premium command here.]
 ```
 
 # Make a code premium only (embed erorr)
